@@ -1,0 +1,20 @@
+@use  'variables';
+@use 'typography';
+
+*,
+*::before,
+*::after { 
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+html {
+  font-size: 75.5%; 
+  color: variables.$d-neutral-darkest;
+  font-family: 'https://fonts.google.com/specimen/Josefin+Sans' ;
+}
+
+::selection {
+  color: variables.$primary-color;
+}

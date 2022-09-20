@@ -1,0 +1,17 @@
+$primary-color:hsl(220, 98%, 61%);
+// Light Theme
+$l-neutral-lightest:  hsl(0, 0%, 98%);
+$l-neutral-lighter: hsl(236, 33%, 92%);
+$l-neutral-light: hsl(233, 11%, 84%); 
+$l-neutral: hsl(236, 9%, 61%);
+$l-neutral-medium: hsl(235, 19%, 35%);
+
+//Dark Theme
+$d-neutral-light: hsl(234, 39%, 85%);
+$d-neutral-light-hover: hsl(236, 33%, 92%);
+$d-neutral: hsl(234, 11%, 52%);
+$d-neutral-medium: hsl(233, 14%, 35%);
+$d-neutral-dark: hsl(237, 14%, 26%);
+$d-neutral-darker: hsl(235, 24%, 19%);  
+$d-neutral-darkest:  hsl(235, 21%, 11%);
+$bg-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);

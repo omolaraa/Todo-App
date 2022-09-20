@@ -1,0 +1,288 @@
+@use '../variables';
+@use '../mixins';
+
+
+section{
+    min-width: 1400px;
+    height: 100vh;
+    background-color: variables.$d-neutral-darkest;
+
+    .dark-image{
+        @include mixins.bg-image(url(../images/bg-desktop-dark.jpg), 30vh, 100vw);
+    }
+
+    .card{
+        width: 24.5rem;
+        color: variables.$d-neutral;
+        position: fixed;
+        transform: translate(-50%, -13.5rem);
+        top: 16.7rem;
+        left: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        overflow: visible;
+
+        .toggle{
+            color: variables.$d-neutral-light-hover;
+            display: grid;
+            grid-auto-flow: column;
+
+            h1{
+                letter-spacing: 0.5rem;
+            }
+
+            .img{
+                width: 1rem;
+                @include mixins.bg-image(url(../images/icon-sun.svg), 1.1rem, 1.1rem);
+                align-self: baseline;
+                justify-self: end;
+            }
+        }
+        .add-todo{
+            position: relative;
+            top: 0.2rem;
+            width: 93%;
+            height: 2rem;    
+            background-color: variables.$d-neutral-darker;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 0.8rem;
+
+            input[type = text] {
+                width: 80%;
+                height: 2rem;    
+                background-color: variables.$d-neutral-darker;
+                border: none;
+                color: variables.$d-neutral-light;
+                caret-color: variables.$primary-color;
+
+                &::placeholder{
+                    color: variables.$d-neutral;
+                }
+
+                &:focus{
+                    outline: none;
+                  }
+               
+            }
+            input[type = checkbox] {
+              @include mixins.checkbox(1px solid variables.$d-neutral-medium);
+            }
+           
+        }
+        .todo-list{
+            width: 100%;
+            background-color: variables.$d-neutral-darker;
+            box-shadow: 0 0 0 variables.$d-neutral-darkest, 0 3px 20px black;
+
+            .list{
+                overflow: visible;
+
+                div{
+                    padding: 0.8rem;
+                    display: grid;
+                    grid-auto-flow: column;
+                    grid-template-columns: min-content;
+                    gap: 1rem;
+
+                    input[type = checkbox] {
+                        @include mixins.checkbox(1px solid variables.$d-neutral-medium);
+          
+                          &:checked{
+                             @include mixins.checked; 
+                          } 
+                    }
+
+                    &:hover{
+                        input[type = checkbox] {
+                            border: double 1px transparent;
+                            background-image: linear-gradient(variables.$d-neutral-darker, variables.$d-neutral-darker), linear-gradient(to right, hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+                            background-origin: border-box;
+                            background-clip: content-box, border-box;
+                        }
+                    }
+
+                    li{
+                        list-style: none;
+                        color: variables.$d-neutral-light;
+                    }
+                   &:hover{
+                    .delete{
+                        opacity: 1;
+                    }
+                   
+                   }
+
+                    .delete{
+                        opacity: 0;
+                        justify-self: end;
+                        align-self: center;
+                        width: 0.8rem;
+                        height: 0.8rem;
+                    }
+                    
+                }
+                hr{
+                    border: none;
+                    width: 100%;
+                    height: 0.1px;
+                    background-color: variables.$d-neutral-dark;
+                }
+
+                .li-checked{
+                    text-decoration-line: line-through;
+                    color: variables.$d-neutral;
+
+                    li{
+                        color: variables.$d-neutral-medium;
+                    }
+                }
+
+                .hide{
+                    display: none;
+                }
+                
+            }
+            .filter-todos{
+                display: grid;
+                grid-auto-flow: column;
+                gap: 2rem;
+                justify-content: space-between;
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+
+                .filters{
+                    list-style: none;
+                    justify-self: center;
+                    display: grid;
+                    grid-auto-flow: column;
+                    gap: 0.6rem;
+
+                    .active{
+                        color: variables.$primary-color;
+                    }
+                    li{
+                        &:hover{
+                            color: variables.$d-neutral-light-hover;
+                        }
+                    }
+                }
+
+                .delete-todos{
+
+                    &:hover{
+                        color: variables.$d-neutral-light-hover;
+                    }
+                }
+                cursor: pointer;
+
+            }
+        }
+    }
+}
+
+.light{
+    background-color: variables.$l-neutral-lightest;
+
+    .light-image{
+        @include mixins.bg-image(url(../images/bg-desktop-light.jpg), 30vh, 100vw)
+    }
+
+    .card{
+        color: variables.$l-neutral;
+
+        .toggle{
+            .img{
+                @include mixins.bg-image(url(../images/icon-moon.svg), 1.1rem, 1.1rem);
+            }
+        }
+
+        .add-todo{
+            background-color: variables.$l-neutral-lightest;
+
+            input[type = text] {  
+                background-color: variables.$l-neutral-lightest;
+                color: variables.$l-neutral-medium;
+    
+                &::placeholder{
+                    color: variables.$l-neutral;
+                }
+            }
+            input[type = checkbox] {
+                @include mixins.checkbox(1px solid variables.$l-neutral-light);
+              }
+        }
+
+        .todo-list{
+            background-color: variables.$l-neutral-lightest;
+            box-shadow: 0 0 0 variables.$l-neutral-light, 0 3px 20px variables.$l-neutral-light;
+
+            .list{
+
+                div{
+
+                    input[type = checkbox] {
+                        @include mixins.checkbox(1px solid variables.$l-neutral-light);
+          
+                          &:checked{
+                             @include mixins.checked; 
+                          } 
+                    }
+
+                    &:hover{
+                        input[type = checkbox] {
+                            border: double 1px transparent;
+                            background-image: linear-gradient(variables.$l-neutral-lightest, variables.$l-neutral-lightest), linear-gradient(to right, hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+                            background-origin: border-box;
+                            background-clip: content-box, border-box;
+                        }
+                    }
+
+                    li{
+                        list-style: none;
+                        color: variables.$l-neutral-medium;
+                    }
+                    
+                }
+                hr{
+                    background-color: variables.$l-neutral-light;
+                }
+
+                .li-checked{
+                    color: variables.$l-neutral;
+
+                    li{
+                        color: variables.$l-neutral-light;
+                    }
+                }
+                
+            }
+            .filter-todos{
+
+                .filters{
+
+                    .active{
+                        color: variables.$primary-color;
+                    }
+                    li{
+                        &:hover{
+                            color: variables.$l-neutral-medium;
+                        }
+                    }
+                }
+
+                .delete-todos{
+
+                    &:hover{
+                        color: variables.$l-neutral-medium;
+                    }
+                }
+                cursor: pointer;
+
+            }
+        }
+    }
+
+}

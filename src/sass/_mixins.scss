@@ -1,0 +1,52 @@
+@use 'variables';
+
+@mixin ckbx-style {
+    appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+}
+
+@mixin checkbox ($border) {
+    @include ckbx-style;
+    border: $border; 
+}
+
+@mixin checked {
+  
+  &:checked{
+    @include ckbx-style;
+    background-image: linear-gradient(to right, hsl(192, 100%, 67%) , hsl(280, 87%, 65%)); 
+    background-repeat: no-repeat;
+
+    &::after{
+        content: "";
+        width: 1.2rem;
+        height: 1.2rem;
+        position: absolute;
+        background-image: url(../images/icon-check.svg);
+        background-repeat: no-repeat;
+        background-size: 0.6rem;
+        background-position: 3.3px 3.3px;                  
+
+    } 
+} 
+}
+
+
+@mixin bg-image($url, $height, $bg-size) {
+    background-image: $url;
+    background-repeat: no-repeat;
+    height: $height;
+    // background-position: 1rem 0.8rem;
+    background-size: $bg-size;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == small {
+      @media only screen and (max-width: 31.25em) {
+        @content;
+      } //500px  (500px/16px = 31.25em)
+    }
+  }
+  
